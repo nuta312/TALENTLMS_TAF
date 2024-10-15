@@ -14,6 +14,7 @@ public class SelenideElementActions {
         element
                 .shouldBe(visible, Duration.ofSeconds(10))
                 .scrollTo()
+                .hover()
                 .click();
         return this;
     }
@@ -28,8 +29,8 @@ public class SelenideElementActions {
 
     public String getText(SelenideElement element) {
         element
-                .shouldBe(visible, Duration.ofSeconds(5))
-                .shouldNotBe(empty, Duration.ofSeconds(5));
+                .shouldBe(visible, Duration.ofSeconds(10))
+                .shouldNotBe(empty, Duration.ofSeconds(10));
         return element.getText();
     }
 
