@@ -1,4 +1,4 @@
-buildscript {
+ buildscript {
     ext {
         junitVersion = '5.11.0'
         allureVersion = '2.29.0'

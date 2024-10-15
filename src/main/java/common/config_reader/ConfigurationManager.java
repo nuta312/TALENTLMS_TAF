@@ -14,8 +14,9 @@ public class ConfigurationManager {
         return ConfigCache.getOrCreate(AppConfig.class);
     }
 
-    public static CredentialsConfig getCredentials() {
+    public static CredentialsConfig getCredentials()   {
         return ConfigCache.getOrCreate(CredentialsConfig.class);
     }
+
 }
 
