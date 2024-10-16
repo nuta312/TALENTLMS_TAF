@@ -1,5 +1,6 @@
 package ui_tests.quick_actions_tests;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ui.pages.admin_dashboard.AdminDashboardPage;
@@ -16,6 +17,7 @@ public class QuickActionsTests {
     public QuickActionsPage quickActionsPage = new QuickActionsPage();
 
     @Test
+    @Step("Choosing option Add course")
     void clickQuickActionsTest() throws InterruptedException {
         open(getAppConfig().base_url());
         loginPage.doLogin(getCredentials().adminUsername(), getCredentials().adminPassword());
