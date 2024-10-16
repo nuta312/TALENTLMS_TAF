@@ -20,22 +20,22 @@ public class QuickActionsPage extends BasePage {
     public QuickActionsPage selectOptionInQuickAction (String option){
         switch (option) {
             case "Add user":
-                elementActions.click(addUser);
+                elementActions.clickElementWithJsExecutor(addUser);
                 break;
             case "Add course":
                 elementActions.clickElementWithJsExecutor(addCourse);
                 break;
             case "Add group":
-                elementActions.click(addGroup);
+                elementActions.clickElementWithJsExecutor(addGroup);
                 break;
             case "Add category":
-                elementActions.click(addCategory);
+                elementActions.clickElementWithJsExecutor(addCategory);
                 break;
             case "Potal ":
-                elementActions.click(portal);
+                elementActions.clickElementWithJsExecutor(portal);
                 break;
             case "Inport-export":
-                elementActions.click(importExport);
+                elementActions.clickElementWithJsExecutor(importExport);
                 break;
             default:
                 System.out.println("Invalid option selected, try again");
