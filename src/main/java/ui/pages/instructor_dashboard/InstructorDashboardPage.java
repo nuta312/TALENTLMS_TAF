@@ -18,7 +18,7 @@ public class InstructorDashboardPage extends BasePage {
 
     @Step("Кликаем на вкладку инструктора на странице")
     public void clickInstructor() {
-      instructor.shouldBe(visible).click();
+        elementActions.click(instructor);
     }
 
     @Step("Проверяем, что текст инструктора равен 'Instructor'")
@@ -27,4 +27,6 @@ public class InstructorDashboardPage extends BasePage {
         Assertions.assertEquals(expectedText, getInstructorText(),
                 "Текст инструктора не совпадает");
     }
+
+
 }

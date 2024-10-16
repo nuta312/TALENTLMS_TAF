@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ui_tests.BaseUiTest;
 
-public class LoginTests  extends BaseUiTest {
+public class AdminTests extends BaseUiTest {
 
     @Test
     void testChooseLeftSideBarElements() {
@@ -13,6 +13,7 @@ public class LoginTests  extends BaseUiTest {
 
     @Test
     void testLoginPositive() {
+
         Assertions.assertEquals("Administrator", adminDashboardPage.getAdminText());
     }
 }
