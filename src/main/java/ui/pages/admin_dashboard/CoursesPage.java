@@ -1,9 +1,11 @@
 package ui.pages.admin_dashboard;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ui.pages.BasePage;
 import java.io.File;
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -33,12 +35,14 @@ public class CoursesPage extends BasePage {
     }
 
 
-    public void filterCoursesByCategory(String categoryName) {
-        $(By.xpath("//div[@role='tooltip' and @aria-label='Filters' and @aria-expanded='false']")).click();
+    public void filterCoursesByCategory(String category) {
+        open("https://kurmanaliev.talentlms.com/plus/courses");
 
-        $(By.xpath("//ul[@role='list' and @class='dropdown-list css-12vlx8x']")).shouldBe(visible);
+        SelenideElement filterDropdown = $(".dropdown");
+        elementActions.click(filterDropdown);
 
-        $$(".dropdown-list-item span").findBy(text(categoryName)).click();
+        SelenideElement categoryOption = $$(".dropdown-list-item").findBy(Condition.text(category));
+        elementActions.click(categoryOption);
     }
 
     public void addNewCourse(String courseName)  {
@@ -49,10 +53,18 @@ public class CoursesPage extends BasePage {
         elementActions.click(addCourseButton);
 
         SelenideElement courseNameField = $("div.editable-container[contenteditable=\"true\"]");
-
         courseNameField.setValue(courseName);
 
-        SelenideElement uploadFileInput = $("input[type='file']"); // Предположительно input для загрузки файла
+        SelenideElement units = $x("//span[text()='All units must be completed']");
+        elementActions.click(units);
+
+        SelenideElement courseDetails = $x("//div[text()='Course details']");
+        elementActions.clickElementWithJsExecutor(courseDetails);
+
+        SelenideElement inputCourseCode = $x("//input[@data-testid='catalog-code-input']");
+        elementActions.input(inputCourseCode, "2");
+
+        SelenideElement uploadFileInput = $("input[type='file']");
 
         uploadFileInput.uploadFile(new File(path));
 

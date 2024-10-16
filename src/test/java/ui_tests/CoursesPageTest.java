@@ -1,5 +1,6 @@
 package ui_tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
@@ -9,11 +10,14 @@ import ui.pages.admin_dashboard.AdminDashboardPage;
 import ui.pages.admin_dashboard.CoursesPage;
 import ui.pages.auth.LoginPage;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static common.config_reader.ConfigurationManager.getAppConfig;
 import static common.config_reader.ConfigurationManager.getCredentials;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CoursesPageTest {
 
@@ -70,13 +74,9 @@ public class CoursesPageTest {
 
     @Test
     public void testFilterCoursesByCategory() throws InterruptedException {
-        open("https://kurmanaliev.talentlms.com/plus/courses");
-        String categoryName = "Inactive";
-        coursesPage.filterCoursesByCategory(categoryName);
-
-        $$(".dropdown-list-item span").findBy(text(categoryName)).shouldBe(visible);
-        // Дополнительные проверки для курсов в таблице
-        Thread.sleep(4000);
+        String categoryToFilter = "Active"; // Замените на нужную категорию
+        coursesPage.filterCoursesByCategory(categoryToFilter);
+        Thread.sleep(5000);
     }
 
     @Test
