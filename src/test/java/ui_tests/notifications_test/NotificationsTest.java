@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ui.helper.SelenideElementActions;
 import ui.pages.auth.LoginPage;
-import ui.pages.notifications.HistoryPage;
 import ui.pages.notifications.NotificationsPage;
 import ui.pages.notifications.OverviewPage;
 import static com.codeborne.selenide.Condition.visible;
@@ -14,7 +13,6 @@ public class NotificationsTest {
     public LoginPage loginPage = new LoginPage();
     public NotificationsPage notificationsPage = new NotificationsPage();
     public OverviewPage overviewPage = new OverviewPage();
-    public HistoryPage historyPage = new HistoryPage();
     SelenideElementActions selenideElementActions = new SelenideElementActions();
 
     @Test
