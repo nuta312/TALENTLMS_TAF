@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class AdminDashboardPage extends BasePage {
 
     public SelenideElement admin = $x("//div[text()='Administrator']");
+    public SelenideElement leftSidebarMenu = $("#main-menu");
 
     @Step("Get admin text")
     public String getAdminText() {
@@ -19,7 +20,7 @@ public class AdminDashboardPage extends BasePage {
 
     @Step("Select element from left sidebar")
     public void selectMenuItem(String menuItem) {
-        SelenideElement menu = $("#main-menu").$x(".//li//*[contains(text(), '" + menuItem + "')]").scrollTo();
+        SelenideElement menu = leftSidebarMenu.$x(".//li//*[contains(text(), '" + menuItem + "')]").scrollTo();
         elementActions.click(menu);
     }
 
