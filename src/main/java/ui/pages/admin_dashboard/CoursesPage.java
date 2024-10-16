@@ -12,8 +12,7 @@ public class CoursesPage extends BasePage {
     SelenideElement searchInput = $("#table-search");
 
     public void searchCourse(String searchText) {
-          // Найти поле поиска по ID
-        searchInput.setValue(searchText);  // Установить значение в поле поиска
+        searchInput.setValue(searchText);
     }
 
     public void deleteCourseByName(String courseName) {
