@@ -9,33 +9,33 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class QuickActionsPage extends BasePage {
 
-    public SelenideElement addUser = $x("(//div[@id='leaderboard-widget'])[1]");
-    public SelenideElement addCourse = $x("(//div[@id='leaderboard-widget'])[2]");
-    public SelenideElement addGroup = $x("(//div[@id='leaderboard-widget'])[3]");
-    public SelenideElement addCategory = $x("(//div[@id='leaderboard-widget'])[4]");
-    public SelenideElement portal = $x("(//div[@id='leaderboard-widget'])[5]");
-    public SelenideElement inportExport = $x("(//div[@id='leaderboard-widget'])[6]");
+    public SelenideElement addUser = $x("//div[text()='Add user']");
+    public SelenideElement addCourse = $x("//div[text()='Add course']");
+    public SelenideElement addGroup = $x("//div[text()='Add group']");
+    public SelenideElement addCategory = $x("//div[text()='Add category']");
+    public SelenideElement portal = $x("//div[text()='Portal']");
+    public SelenideElement importExport = $x("//div[text()='Import-Export']");
 
 
     public QuickActionsPage selectOptionInQuickAction (String option){
         switch (option) {
             case "Add user":
-                elementActions.clickElementWithJsExecutor(addUser);
+                elementActions.click(addUser);
                 break;
             case "Add course":
                 elementActions.clickElementWithJsExecutor(addCourse);
                 break;
             case "Add group":
-                elementActions.clickElementWithJsExecutor(addGroup);
+                elementActions.click(addGroup);
                 break;
             case "Add category":
-                elementActions.clickElementWithJsExecutor(addCategory);
+                elementActions.click(addCategory);
                 break;
             case "Potal ":
-                elementActions.clickElementWithJsExecutor(portal);
+                elementActions.click(portal);
                 break;
             case "Inport-export":
-                elementActions.clickElementWithJsExecutor(inportExport);
+                elementActions.click(importExport);
                 break;
             default:
                 System.out.println("Invalid option selected, try again");
@@ -43,5 +43,4 @@ public class QuickActionsPage extends BasePage {
         }
         return this;
     }
-
 }

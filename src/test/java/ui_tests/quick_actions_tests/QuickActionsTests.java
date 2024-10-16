@@ -11,8 +11,6 @@ import static common.config_reader.ConfigurationManager.getAppConfig;
 import static common.config_reader.ConfigurationManager.getCredentials;
 
 public class QuickActionsTests {
-
-
     public LoginPage loginPage = new LoginPage();
     public AdminDashboardPage adminDashboardPage = new AdminDashboardPage();
     public QuickActionsPage quickActionsPage = new QuickActionsPage();
@@ -22,7 +20,6 @@ public class QuickActionsTests {
         open(getAppConfig().base_url());
         loginPage.doLogin(getCredentials().adminUsername(), getCredentials().adminPassword());
         Assertions.assertEquals("Administrator", adminDashboardPage.getAdminText());
-        quickActionsPage.selectOptionInQuickAction("Add user");
+        quickActionsPage.selectOptionInQuickAction("Add course");
     }
-
 }
