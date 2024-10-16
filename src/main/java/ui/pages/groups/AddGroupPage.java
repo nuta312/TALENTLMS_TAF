@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class AddGroupPage extends BasePage {
 
 
-    public SelenideElement groupsTab = $(By.xpath("//*[@id=\"groups\"]/div/div/a/div/div[2]"));
+    public SelenideElement groupsTab = $(By.xpath("//div[@class='title' and contains(text(), 'Groups')]"));
     public SelenideElement addGroupBtn = $(By.xpath("//span[text()='Add group']"));
     public SelenideElement groupNameInput = $(By.xpath("//input[@data-testid='name-input']"));
     public SelenideElement descriptionInput = $(By.xpath("//textarea[@id='description']"));

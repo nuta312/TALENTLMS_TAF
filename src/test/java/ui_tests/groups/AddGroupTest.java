@@ -1,4 +1,5 @@
 package ui_tests.groups;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ui.pages.admin_dashboard.AdminDashboardPage;
@@ -15,6 +16,7 @@ public class AddGroupTest {
     public AddGroupPage addGroupPage = new AddGroupPage();
 
     @Test
+    @Step("Add a group with name: {0}, description: {1}, and price: {2}")
     void testAddGroup() {
         open(getAppConfig().base_url());
         loginPage.doLogin(getCredentials().adminUsername(), getCredentials().adminPassword());
