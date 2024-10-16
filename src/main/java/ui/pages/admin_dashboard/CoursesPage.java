@@ -37,12 +37,14 @@ public class CoursesPage extends BasePage {
         deleteButton.shouldBe(visible);
 
         // Нажимаем кнопку удаления
-        deleteButton.click();
+        elementActions.click(deleteButton);
+        //deleteButton.click();
 
         // Подтверждаем удаление, если появляется диалог подтверждения
         SelenideElement confirmButton = $x("//button[contains(@class, 'solid') and contains(@class, 'css-11y7qqz')]");
         if (confirmButton.exists() && confirmButton.isDisplayed()) {
-            confirmButton.click();
+            elementActions.click(confirmButton);
+            //confirmButton.click();
         }
 
         // Убедимся, что строка больше не отображается в таблице
@@ -96,7 +98,7 @@ public class CoursesPage extends BasePage {
 
         // Найти и нажать на кнопку "Add Course"
         SelenideElement addCourseButton = $x("//button[@class='start-button solid css-j2mmvp']");
-        addCourseButton.click();
+        elementActions.click(addCourseButton);
 
 
 
@@ -115,7 +117,8 @@ public class CoursesPage extends BasePage {
 
         // Нажать на кнопку сохранения
         SelenideElement publishButton = $x("//button[@class='solid css-1cv4mj0' and @aria-label='Publish course']");
-        publishButton.shouldBe(visible).click();
+        elementActions.click(publishButton.shouldBe(visible));
+       // publishButton.shouldBe(visible).click();
 
 
 
