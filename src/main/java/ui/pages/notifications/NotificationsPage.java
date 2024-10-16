@@ -11,10 +11,7 @@ public class NotificationsPage extends BasePage {
     public SelenideElement history = $x("//div[text()='History']");
     public SelenideElement pending = $x("//div[text()='Pending']");
     public SelenideElement systemNot = $x("//div[text()='System notifications']");
-    public SelenideElement filterClick = $x("//*[name()='svg'])[41]");
-    public SelenideElement filterClick2 = $x("//div[@class='dropdown css-1dpepst']");
-
-
+    public SelenideElement filterClick = $x("//div[@class='dropdown css-1dpepst']");
     public SelenideElement addNotification = $x("//div[text()='Add notification']");
 
     public String getNotificationsText() {
@@ -36,5 +33,4 @@ public class NotificationsPage extends BasePage {
     public String getSystemNotificationsText() {
         return elementActions.getText(systemNot);
     }
-
 }

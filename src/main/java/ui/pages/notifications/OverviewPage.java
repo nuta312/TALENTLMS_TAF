@@ -3,7 +3,6 @@ package ui.pages.notifications;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ui.pages.BasePage;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -14,12 +13,7 @@ public class OverviewPage extends BasePage {
     public SelenideElement name = $(By.id("name"));
     public SelenideElement selectEvent = $(By.id("react-select-2-input"));
 
-
     public String getNotifications() {
         return elementActions.getText(notifications);
-    }
-
-    public String getName() {
-        return elementActions.getText(name.setValue("Amir"));
     }
 }
