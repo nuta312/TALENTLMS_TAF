@@ -6,7 +6,6 @@ import ui.pages.auth.LoginPage;
 import ui.pages.notifications.HistoryPage;
 import ui.pages.notifications.NotificationsPage;
 import ui.pages.notifications.OverviewPage;
-import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static common.config_reader.ConfigurationManager.*;
@@ -19,7 +18,7 @@ public class NotificationsTest {
     SelenideElementActions selenideElementActions = new SelenideElementActions();
 
     @Test
-    void testNotifications()  { // Notification
+    void testNotifications()  {
 
         open(getAppConfig().base_url());
         loginPage.doLogin(getCredentials().adminUsername(), getCredentials().adminPassword());
