@@ -38,6 +38,7 @@ dependencies {
     implementation group: 'com.codeborne', name: 'selenide', version: '7.5.1'
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
     // Allure
     implementation "io.qameta.allure:allure-attachments:${allureVersion}"
