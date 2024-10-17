@@ -67,6 +67,7 @@ public class NotificationsTest extends BaseNotificationTest{
         assertEquals("Export reports in Excel", systemPage.getExportExcel());
         assertEquals("Import data", systemPage.getImportData());
         assertEquals("Reply to discussion", systemPage.getReplyToDiscussion());
+
     }
 }
 
