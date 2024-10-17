@@ -1,6 +1,7 @@
 package ui.pages.auth;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import ui.pages.BasePage;
 import ui.pages.admin_dashboard.AdminDashboardPage;
@@ -15,6 +16,7 @@ public class LoginPage extends BasePage {
     public SelenideElement passwordInput = $(By.id("password"));
     public SelenideElement loginButton = $x("//button[@type='submit']");
 
+    @Step("Do login {0} {1}")
     public AdminDashboardPage doLogin(String username, String password) {
         elementActions.input(loginInput, username)
                 .input(passwordInput, password)
