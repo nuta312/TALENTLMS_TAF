@@ -9,6 +9,7 @@ import ui.pages.auth.LoginPage;
 import static com.codeborne.selenide.Selenide.open;
 import static common.config_reader.ConfigurationManager.getAppConfig;
 import static common.config_reader.ConfigurationManager.getCredentials;
+import static io.qameta.allure.Allure.step;
 
 
 public class LoginTests {
@@ -18,8 +19,12 @@ public class LoginTests {
 
     @Test
     void testLoginPositive() {
-        open(getAppConfig().base_url());
+        step("Open login page", () ->
+                open(getAppConfig().base_url())
+        );
         loginPage.doLogin(getCredentials().adminUsername(), getCredentials().adminPassword());
-        Assertions.assertEquals("Administrator", adminDashboardPage.getAdminText());
+        step("Verify that user is on Admin Dashboard", () ->
+                Assertions.assertEquals("Administrator", adminDashboardPage.getAdminText())
+        );
     }
 }
