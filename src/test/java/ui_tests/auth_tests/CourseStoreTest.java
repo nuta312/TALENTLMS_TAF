@@ -1,5 +1,4 @@
 package ui_tests.auth_tests;
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ui.pages.auth.LoginPage;
@@ -13,7 +12,6 @@ public class CourseStoreTest {
     public CoursePage coursePage = new CoursePage();
     public MainStore mainStore = new MainStore();
 
-@Step("Кликаем раздел Course store")
     @Test
     void storeTest1() {
         open(getAppConfig().base_url());
