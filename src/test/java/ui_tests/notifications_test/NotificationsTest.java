@@ -54,7 +54,7 @@ public class NotificationsTest extends BaseNotificationTest{
     @Test
     void testSystemNotifications() {
         selenideElementActions.click(notificationsPage.systemNot);
-        Selenide.sleep(3000);
+        Selenide.sleep(4000);
         List<SystemNotifications> systemList = systemPage.getSystemTable();
         IntStream.range(0, systemList.size())
                 .forEach(i -> System.out.printf("%d. %s%n", i + 1, systemList.get(i)));
