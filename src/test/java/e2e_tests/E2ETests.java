@@ -17,6 +17,6 @@ public class E2ETests {
     void testLoginPositive() {
         open(getAppConfig().base_url());
         loginPage.doLogin(getCredentials().adminUsername(), getCredentials().adminPassword());
-        Assertions.assertEquals("Administrator1", adminDashboardPage.getAdminText());
+        Assertions.assertEquals("Administrator", adminDashboardPage.getAdminText());
     }
 }

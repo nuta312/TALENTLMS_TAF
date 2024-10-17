@@ -6,5 +6,4 @@ import org.aeonbits.owner.Config;
 public interface AppConfig extends Config {
     @Key("base.url")
     String base_url();
-
 }
