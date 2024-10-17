@@ -16,7 +16,6 @@ public class AddGroupTest {
     public AddGroupPage addGroupPage = new AddGroupPage();
 
     @Test
-    @Step("Add a group with name: {0}, description: {1}, and price: {2}")
     void testAddGroup() {
         open(getAppConfig().base_url());
         loginPage.doLogin(getCredentials().adminUsername(), getCredentials().adminPassword());
