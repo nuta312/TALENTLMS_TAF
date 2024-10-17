@@ -34,7 +34,7 @@ public class CourseStoreTest {
     }
 
     @Test
-    void storeTest3() throws InterruptedException {
+    void storeTest3() {
         open(getAppConfig().base_url());
         loginPage.doLogin(getCredentials().adminUsername(), getCredentials().adminPassword());
         coursePage
