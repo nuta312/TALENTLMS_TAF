@@ -16,6 +16,7 @@ public class AddGroupPage extends BasePage {
     public SelenideElement priceInput = $(By.xpath("//input[@id='price']"));
     public SelenideElement saveBtn = $(By.xpath("//span[@class='btn-text' and text()='Save']"));
 
+    @Step("Add a group with name: {0}, description: {1}, and price: {2}")
     public AddGroupPage addGroup(String groupName, String description, String price) {
         elementActions.click(groupsTab)
                 .click(addGroupBtn)
