@@ -50,7 +50,7 @@ public class NotificationsTest extends BaseNotificationTest{
         Selenide.sleep(4000);
 
         if (allHistoryTable.isEmpty()) {
-            System.out.println("История пуста.");
+            System.out.println("History is empty!");
         } else {
             IntStream.range(0, allHistoryTable.size())
                     .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTable.get(i)));
