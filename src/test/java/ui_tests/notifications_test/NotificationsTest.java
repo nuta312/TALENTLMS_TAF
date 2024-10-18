@@ -47,14 +47,20 @@ public class NotificationsTest extends BaseNotificationTest{
     void testHistoryTable() {
         selenideElementActions.click(notificationsPage.history);
         List<History> allHistoryTable = historyPage.getHistoryTable();
-        IntStream.range(0, allHistoryTable.size())
-                .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTable.get(i)));
+        Selenide.sleep(4000);
+
+        if (allHistoryTable.isEmpty()) {
+            System.out.println("История пуста.");
+        } else {
+            IntStream.range(0, allHistoryTable.size())
+                    .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTable.get(i)));
+        }
     }
 
     @Test
     void testSystemNotifications() {
         selenideElementActions.click(notificationsPage.systemNot);
-        Selenide.sleep(4000);
+        Selenide.sleep(3000);
         List<SystemNotifications> systemList = systemPage.getSystemTable();
         IntStream.range(0, systemList.size())
                 .forEach(i -> System.out.printf("%d. %s%n", i + 1, systemList.get(i)));
