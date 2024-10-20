@@ -45,7 +45,7 @@ public class UserTableTest {
     public void userEditAndSaveTest(){
         adminDashboardPage.selectMenuItem("Users");
         Selenide.sleep(5000);
-        userPage.updateUser("L. Bechtelar", "Edit", 3);
+        userPage.updateUser("B. Kovacek", "Edit", 2);
         infoPage.editUserAndSave();
         step("Verify that user is edit successfully", () ->
                 Assertions.assertEquals("Changes saved successfully", userPage.getChangeUserText())
@@ -58,7 +58,7 @@ public class UserTableTest {
     public void userEditAndCancelTest(){
         adminDashboardPage.selectMenuItem("Users");
         Selenide.sleep(5000);
-        userPage.updateUser("E. Schiller", "Edit", 1);
+        userPage.updateUser("B. Osinski", "Edit", 2);
         infoPage.editUserAndCancel();
         step("Verify that user edit was canceled successfully", () ->
                 Assertions.assertEquals("Edit user", userPage.getAfterClickCancelText())
@@ -70,7 +70,7 @@ public class UserTableTest {
     public void deleteUserTest(){
         adminDashboardPage.selectMenuItem("Users");
         Selenide.sleep(5000);
-        userPage.deleteUser("e. gergerg", "Delete", 2);
+        userPage.deleteUser("B. Osinski", "Delete", 2);
         step("Verify that user is delete get text", () ->
                 Assertions.assertEquals("Delete user", userPage.getDeleteText())
         );
@@ -81,7 +81,7 @@ public class UserTableTest {
     public void loginAsUserTest(){
         adminDashboardPage.selectMenuItem("Users");
         Selenide.sleep(5000);
-        userPage.deleteUser("L. Volkman", "Login as", 3);
+        userPage.deleteUser("B. Osinski", "Login as", 2);
         step("Verify that user is login as successfully", () ->
                 Assertions.assertEquals("Recent course activity", userPage.getLoginAsText())
         );
