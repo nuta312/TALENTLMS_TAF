@@ -15,7 +15,7 @@ public class SelenideElementActions {
 
     public SelenideElementActions click(SelenideElement element) {
         element
-                .shouldBe(visible, Duration.ofSeconds(10))
+                .shouldBe(visible, Duration.ofSeconds(20))
                 .scrollTo()
                 .click();
         return this;
