@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import common.entities.notifications.SystemNotifications;
 import ui.pages.BasePage;
+
 import java.util.ArrayList;
 
 import static com.codeborne.selenide.Selenide.$$;

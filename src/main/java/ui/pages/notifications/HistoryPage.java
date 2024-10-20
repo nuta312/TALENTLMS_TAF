@@ -21,6 +21,11 @@ public class HistoryPage extends BasePage {
     public SelenideElement deleteHistory = $x("//span[normalize-space()='Delete']");
     public SelenideElement getClearHistory = $x("//span[text()='Clear notification history']");
     public SelenideElement nextPageButton = $x("//button[@title='next page']");
+    public SelenideElement nextPage = $(By.xpath("//button[@title='next page']//span[@class='btn-text']//*[name()='svg']"));
+
+    public boolean isNextPageButtonPresent() {
+        return nextPage.exists() && nextPage.isDisplayed();
+    }
 
     public String getNextPageButton() {
         return elementActions.getText(nextPageButton);
