@@ -17,7 +17,7 @@ public class MyProfile_Tests {
     public MyProfile myProfile = FakerNyProfile.randomField();
 
     @Test
-    void testLoginPositive() throws InterruptedException {
+    void testLoginPositive() {
         step("Open login page", () ->
                 open(getAppConfig().base_url())
         );
@@ -28,6 +28,5 @@ public class MyProfile_Tests {
                 .clickTime1()
                 .clickFieldLanguage()
                 .clickLanguage();
-        Thread.sleep(7000);
     }
 }

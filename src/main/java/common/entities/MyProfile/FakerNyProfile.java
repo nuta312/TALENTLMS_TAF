@@ -3,7 +3,6 @@ package common.entities.MyProfile;
 import com.github.javafaker.Faker;
 
 public class FakerNyProfile {
-
 private static Faker faker = new Faker();
 
 public static String randomFirstName () {
