@@ -23,5 +23,4 @@ public class AdminDashboardPage extends BasePage {
         SelenideElement menu = leftSidebarMenu.$x(".//li//*[contains(text(), '" + menuItem + "')]").scrollTo();
         elementActions.click(menu);
     }
-
 }
