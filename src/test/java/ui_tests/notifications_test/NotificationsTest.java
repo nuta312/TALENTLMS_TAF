@@ -49,24 +49,22 @@ public class NotificationsTest extends BaseNotificationTest {
     @Test()
     void testHistoryTable() {
         selenideElementActions.click(notificationsPage.history);
+
         List<History> allHistoryTablePage1 = historyPage.getHistoryTable();
         if (allHistoryTablePage1.isEmpty()) {
-            System.out.println("История пуста!");
+            System.out.println("History is empty!");
         } else {
             IntStream.range(0, allHistoryTablePage1.size())
                     .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTablePage1.get(i)));
-        }
-
-        if (historyPage.isNextPageButtonPresent()) {
-            selenideElementActions.click(historyPage.nextPage);
-
-            List<History> allHistoryTablePage2 = historyPage.getHistoryTable();
-            if (!allHistoryTablePage1.equals(allHistoryTablePage2)) {
-                IntStream.range(0, allHistoryTablePage2.size())
-                        .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTablePage2.get(i)));
             }
-        } else {
-            System.out.println("Данные на второй странице совпадают с первой!");
+            if (historyPage.isNextPageButtonPresent()) {
+                selenideElementActions.click(historyPage.nextPage);
+
+                List<History> allHistoryTablePage2 = historyPage.getHistoryTable();
+                if (!allHistoryTablePage1.equals(allHistoryTablePage2)) {
+                    IntStream.range(0, allHistoryTablePage2.size())
+                            .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTablePage2.get(i)));
+            }
         }
         assertEquals("Recipient", historyPage.getRecipient());
         assertEquals("Subject", historyPage.getSubject());
