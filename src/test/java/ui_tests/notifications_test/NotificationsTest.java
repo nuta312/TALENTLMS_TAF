@@ -32,6 +32,8 @@ public class NotificationsTest extends BaseNotificationTest{
         selenideElementActions.click(overviewPage.selectEvent);
         overviewPage.selectEvent.click();
         overviewPage.selectEvent.setValue("On user create").pressEnter();
+        Selenide.sleep(3000);
+        selenideElementActions.click(overviewPage.selectRecipients);
     }
 
     @Test
@@ -55,6 +57,9 @@ public class NotificationsTest extends BaseNotificationTest{
             IntStream.range(0, allHistoryTable.size())
                     .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTable.get(i)));
         }
+        assertEquals("Recipient", historyPage.getRecipient());
+        assertEquals("Subject", historyPage.getSubject());
+        assertEquals("Date", historyPage.getDate());
     }
 
     @Test
