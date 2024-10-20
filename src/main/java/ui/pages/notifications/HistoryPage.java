@@ -9,7 +9,6 @@ import ui.pages.BasePage;
 import java.util.ArrayList;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.visible;
 
 public class HistoryPage extends BasePage {
 
@@ -50,11 +49,7 @@ public class HistoryPage extends BasePage {
     public ArrayList<History> getHistoryTable() {
         ArrayList<History> historyList = new ArrayList<>();
 
-        SelenideElement tableBody = $("div[data-testid='table'] tbody");
-        tableBody.shouldBe(visible);
-
-        ElementsCollection rows = tableBody.$$("tr");
-
+        ElementsCollection rows = $$("div[data-testid='table'] tbody tr");
         rows.shouldHave(sizeGreaterThan(0));
 
         for (SelenideElement row : rows) {

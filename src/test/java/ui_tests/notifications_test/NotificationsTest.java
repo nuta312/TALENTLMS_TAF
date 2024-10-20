@@ -56,14 +56,16 @@ public class NotificationsTest extends BaseNotificationTest {
         } else {
             IntStream.range(0, allHistoryTablePage1.size())
                     .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTablePage1.get(i)));
-            }
-            if (historyPage.isNextPageButtonPresent()) {
-                selenideElementActions.click(historyPage.nextPage);
+        }
+        if (historyPage.isNextPageButtonPresent()) {
+            selenideElementActions.click(historyPage.nextPage);
 
-                List<History> allHistoryTablePage2 = historyPage.getHistoryTable();
-                if (!allHistoryTablePage1.equals(allHistoryTablePage2)) {
-                    IntStream.range(0, allHistoryTablePage2.size())
-                            .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTablePage2.get(i)));
+            List<History> allHistoryTablePage2 = historyPage.getHistoryTable();
+            if (!allHistoryTablePage1.equals(allHistoryTablePage2)) {
+                IntStream.range(0, allHistoryTablePage2.size())
+                        .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTablePage2.get(i)));
+            } else {
+                System.out.println("History is empty!");
             }
         }
         assertEquals("Recipient", historyPage.getRecipient());
@@ -89,4 +91,3 @@ public class NotificationsTest extends BaseNotificationTest {
         assertEquals("Reply to discussion", systemPage.getReplyToDiscussion());
     }
 }
-
