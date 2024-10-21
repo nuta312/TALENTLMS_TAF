@@ -16,11 +16,33 @@ public class LoginPage extends BasePage {
     public SelenideElement passwordInput = $(By.id("password"));
     public SelenideElement loginButton = $x("//button[@type='submit']");
 
-    @Step("Do login {0} {1}")
-    public AdminDashboardPage doLogin(String username, String password) {
+    public SelenideElement errorMessage = $(By.xpath("//p[text()='Your username or password is incorrect. Please try again.']"));
+    @Step("Аутентификация")
+    public AdminDashboardPage doLogin(String username, String password){
         elementActions.input(loginInput, username)
                 .input(passwordInput, password)
                 .click(loginButton);
         return new AdminDashboardPage();
     }
-}
+
+    @Step("Попытка входа с невалидным паролем: {username}")
+    public void doLoginWithInvalidPassword(String username, String invalidPassword) {
+        elementActions.input(loginInput, username)
+                .input(passwordInput, invalidPassword)
+                .click(loginButton);
+    }
+
+
+    @Step("Попытка входа с невалидным логином: {invalidUsername}")
+    public void doLoginWithInvalidUsername(String invalidUsername, String password) {
+        elementActions.input(loginInput, invalidUsername)
+                .input(passwordInput, password)
+                .click(loginButton);
+    }
+
+    @Step("Метод для проверки, что отображается сообщение об ошибке")
+    public String isErrorMessageDisplayed() {
+        return errorMessage.getText();
+    }
+    }
+
