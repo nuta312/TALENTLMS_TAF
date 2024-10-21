@@ -15,14 +15,17 @@ public class OverviewPage extends BasePage {
     public SelenideElement addNotification = $x("//span[normalize-space()='Add notification']");
     public SelenideElement name = $(By.id("name"));
     public SelenideElement selectEvent = $(By.id("react-select-2-input"));
+    public SelenideElement selectRecipients = $x("(//div[@class='select-input-wrapper'])[2]");
+    public ElementsCollection selectRecipientsTable = $$(By.id("react-select-28-placeholder"));
+    public ElementsCollection relatedUser = $$(By.id("react-select-3-placeholder"));
     public ElementsCollection overviewTable = $$("tr.link");
 
     public ArrayList<Overview> getOversNotificationsTable() {
         ArrayList<Overview> overviewList = new ArrayList<>();
         for (SelenideElement row : overviewTable) {
             ElementsCollection oversCells = row.$$("[data-testid='name-cell'], " +
-                            "[data-testid='event_name-cell'], " +
-                            "[data-testid='recipient_type-cell']"
+                    "[data-testid='event_name-cell'], " +
+                    "[data-testid='recipient_type-cell']"
             );
 
             String cellName = oversCells.get(0).getText();
