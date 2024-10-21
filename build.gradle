@@ -40,6 +40,11 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
+
+    // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+
+
     // Allure
     implementation "io.qameta.allure:allure-attachments:${allureVersion}"
     implementation("io.qameta.allure:allure-junit5:${allureVersion}")
