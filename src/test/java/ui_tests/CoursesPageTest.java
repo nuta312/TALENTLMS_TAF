@@ -1,10 +1,8 @@
 package ui_tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import common.entities.Course;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.helper.SelenideElementActions;
@@ -12,7 +10,6 @@ import ui.pages.admin_dashboard.AdminDashboardPage;
 import ui.pages.auth.LoginPage;
 import ui.pages.course.CoursesPage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -30,8 +27,6 @@ public class CoursesPageTest {
     public AdminDashboardPage adminDashboardPage = new AdminDashboardPage();
     public SelenideElementActions elementActions = new SelenideElementActions();
 
-
-
     @BeforeEach
     public void setUp() {
 
@@ -41,10 +36,6 @@ public class CoursesPageTest {
         elementActions.click(coursePage.coursesSidebar);
         coursePage = new CoursesPage();
     }
-
-
-
-
 
     @Test
     void courseListTest() throws InterruptedException {
@@ -80,9 +71,6 @@ public class CoursesPageTest {
         coursePage.getCourse("New Course");
     }
 
-
-
-
     @Test
     public void testSearchCourse() throws InterruptedException {// для поиска
         String courseName = "Bachelor";
@@ -106,7 +94,6 @@ public class CoursesPageTest {
         ElementsCollection rowsAfterDeletion = $$x("//div[@id='scroll-container']//table/tbody/tr");
         assertEquals(0, rowsAfterDeletion.filterBy(text(courseName)).size(),
                 "The course should be removed from the table.");
-
     }
 
     @Test
@@ -125,6 +112,5 @@ public class CoursesPageTest {
 
         coursePage.addNewCourse(courseName, codValue, option, priceValue);
     }
-
 }
 

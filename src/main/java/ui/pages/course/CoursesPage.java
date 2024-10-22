@@ -1,6 +1,5 @@
 package ui.pages.course;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -100,10 +99,7 @@ public class CoursesPage extends BasePage {
         return null;
     }
 
-
-
     public void searchCourse(String searchText) {
-
         searchInput.setValue(searchText);
     }
 
@@ -112,27 +108,19 @@ public class CoursesPage extends BasePage {
                 .findBy(Condition.text(courseName))
                 .shouldBe(Condition.visible); // Ожидаем появления строки
 
-        // Скроллим курс в зону видимости и наводим мышь
         courseRow.scrollIntoView(true).hover();
 
-        // Находим кнопку удаления и кликаем на неё с проверкой
         SelenideElement deleteButton = courseRow.$("[data-testid='delete-action']");
         deleteButton.shouldBe(Condition.visible, Condition.enabled);
         elementActions.clickElementWithJsExecutor(deleteButton);
 
-        // Ожидаем появления кнопки подтверждения и кликаем на неё
         SelenideElement confirmButton = $x("//button[contains(@class, 'solid') and contains(@class, 'css-11y7qqz')]");
         confirmButton.shouldBe(Condition.visible, Condition.enabled);
         elementActions.click(confirmButton);
-
-        // Проверяем, что строка с курсом исчезла
         courseRow.should(Condition.disappear);
-
     }
 
-
     public void filterCoursesByCategory(String category) {
-
 
         SelenideElement filterDropdown = $(".dropdown");
         executeJavaScript("arguments[0].scrollIntoView(true);", filterDropdown);
