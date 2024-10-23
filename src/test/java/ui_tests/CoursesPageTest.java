@@ -106,7 +106,7 @@ public class CoursesPageTest {
     @Test
     public void testAddNewCourse() throws InterruptedException {
         String courseName = "New Course";
-        String codValue = "11";
+        String codValue = "12";
         String option = "API"; // можно менять на Samples или test
         String priceValue = "1000";
 
