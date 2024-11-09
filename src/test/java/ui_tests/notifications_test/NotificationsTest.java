@@ -1,4 +1,5 @@
 package ui_tests.notifications_test;
+
 import com.codeborne.selenide.Selenide;
 import common.entities.notifications.History;
 import common.entities.notifications.Overview;
@@ -9,7 +10,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class NotificationsTest extends BaseNotificationTest{
+public class NotificationsTest extends BaseNotificationTest {
 
     @Test()
     void testNotifications() {
@@ -32,6 +33,8 @@ public class NotificationsTest extends BaseNotificationTest{
         selenideElementActions.click(overviewPage.selectEvent);
         overviewPage.selectEvent.click();
         overviewPage.selectEvent.setValue("On user create").pressEnter();
+        Selenide.sleep(3000);
+        selenideElementActions.click(overviewPage.selectRecipients);
     }
 
     @Test
@@ -46,15 +49,28 @@ public class NotificationsTest extends BaseNotificationTest{
     @Test()
     void testHistoryTable() {
         selenideElementActions.click(notificationsPage.history);
-        List<History> allHistoryTable = historyPage.getHistoryTable();
-        Selenide.sleep(4000);
 
-        if (allHistoryTable.isEmpty()) {
+        List<History> allHistoryTablePage1 = historyPage.getHistoryTable();
+        if (allHistoryTablePage1.isEmpty()) {
             System.out.println("History is empty!");
         } else {
-            IntStream.range(0, allHistoryTable.size())
-                    .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTable.get(i)));
+            IntStream.range(0, allHistoryTablePage1.size())
+                    .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTablePage1.get(i)));
         }
+        if (historyPage.isNextPageButtonPresent()) {
+            selenideElementActions.click(historyPage.nextPage);
+
+            List<History> allHistoryTablePage2 = historyPage.getHistoryTable();
+            if (!allHistoryTablePage1.equals(allHistoryTablePage2)) {
+                IntStream.range(0, allHistoryTablePage2.size())
+                        .forEach(i -> System.out.printf("%d. %s%n", i + 1, allHistoryTablePage2.get(i)));
+            } else {
+                System.out.println("History is empty!");
+            }
+        }
+        assertEquals("Recipient", historyPage.getRecipient());
+        assertEquals("Subject", historyPage.getSubject());
+        assertEquals("Date", historyPage.getDate());
     }
 
     @Test
@@ -73,7 +89,5 @@ public class NotificationsTest extends BaseNotificationTest{
         assertEquals("Export reports in Excel", systemPage.getExportExcel());
         assertEquals("Import data", systemPage.getImportData());
         assertEquals("Reply to discussion", systemPage.getReplyToDiscussion());
-
     }
 }
-

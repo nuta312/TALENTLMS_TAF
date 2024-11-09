@@ -4,10 +4,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.BeforeEach;
 import ui.helper.SelenideElementActions;
 import ui.pages.auth.LoginPage;
-import ui.pages.notifications.HistoryPage;
-import ui.pages.notifications.NotificationsPage;
-import ui.pages.notifications.OverviewPage;
-import ui.pages.notifications.SystemPage;
+import ui.pages.notifications.*;
 
 import static com.codeborne.selenide.Selenide.open;
 import static common.config_reader.ConfigurationManager.getAppConfig;
